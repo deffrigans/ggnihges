@@ -114,7 +114,7 @@ try {
 var body = (m.mtype === 'conversation' && m.message.conversation) ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
 var budy = (typeof m.text == 'string' ? m.text : '')
 var prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!?#$%^&.+-,\/\\©^]/.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!?#$%^&.+-,\/\\©^]/gi) : '#'
-const allcmd = [`${prefix}menu`,`${prefix}sticker`,`${prefix}play`,`${prefix}addlist`,`${prefix}list`,`${prefix}cerpen`,`${prefix}ytmp3`,`${prefix}ytmp4`,`${prefix}ping`,`${prefix}dashboard`,`${prefix}updatelist`,`${prefix}dellist`,`${prefix}owner`,`${prefix}cowner`,`${prefix}tes`,`${prefix}linkgroup`,`${prefix}setppgc`,`${prefix}setname`,`${prefix}setdesc`,`${prefix}ephemeral`,`${prefix}hidetag`,`${prefix}tagall`,`${prefix}promote`,`${prefix}demote`,`${prefix}upvote`,`${prefix}cekvote`,`${prefix}hapusvote`,`${prefix}antilink`,`${prefix}welcome`,`${prefix}add`,`${prefix}kick`,`${prefix}revoke`,`${prefix}group`,`${prefix}editinfo`,`${prefix}ceksewa`,`${prefix}instagram`,`${prefix}tiktok`,`${prefix}facebook`,`${prefix}igstory`,`${prefix}jpeg`,`${prefix}mp4`,`${prefix}gimage`,`${prefix}ytsearch`,`${prefix}searchgc`,`${prefix}happymod`,`${prefix}servermc`,`${prefix}mcpedl`,`${prefix}google`,`${prefix}pinterest`,`${prefix}layarkaca-search`,`${prefix}smeme`,`${prefix}swm`,`${prefix}stickerwm`,`${prefix}emojimix`,`${prefix}tomp3`,`${prefix}tovn`,`${prefix}tourl`,`${prefix}togif`,`${prefix}tomp4`,`${prefix}toimage`,`${prefix}quotes`,`${prefix}inspect`,`${prefix}getname`,`${prefix}nulis`,`${prefix}kalkulator`,`${prefix}quoted`,`${prefix}join`,`${prefix}tohuruf`,`${prefix}volume`,`${prefix}bass`,`${prefix}blown`,`${prefix}deep`,`${prefix}earrape`,`${prefix}fast`,`${prefix}fat`,`${prefix}nightcore`,`${prefix}reverse`,`${prefix}robot`,`${prefix}slow`,`${prefix}tupai`,`${prefix}translate`,`${prefix}halah`,`${prefix}hilih`,`${prefix}huluh`,`${prefix}holoh`,`${prefix}math`,`${prefix}tictactoe`,`${prefix}delttt`,`${prefix}tebak`,`${prefix}family100`,`${prefix}suitpvp`,`${prefix}3dbox`,`${prefix}roadwarning`,`${prefix}icecold`,`${prefix}luxury`,`${prefix}cloud`,`${prefix}summersand`,`${prefix}horrorblood`,`${prefix}thunder`,`${prefix}pornhub`,`${prefix}glitch`,`${prefix}avenger`,`${prefix}space`,`${prefix}ninjalogo`,`${prefix}marvelstudio`,`${prefix}lionlogo`,`${prefix}wolflogo`,`${prefix}steel3d`,`${prefix}wallgravity`,`${prefix}merdeka-news`,`${prefix}kontan-news`,`${prefix}cnbc-news`,`${prefix}tribun-news`,`${prefix}indozone-news`,`${prefix}kompas-news`,`${prefix}detik-news`,`${prefix}daily-news`,`${prefix}inews-news`,`${prefix}okezone-news`,`${prefix}sindo-news`,`${prefix}tempo-news`,`${prefix}antara-news`,`${prefix}cnn-news`,`${prefix}fajar-news`,`${prefix}setcmd`,`${prefix}listcmd`,`${prefix}delcmd`,`${prefix}lockcmd`,`${prefix}addmsg`,`${prefix}listmsg`,`${prefix}getmsg`,`${prefix}getmsg`,`${prefix}delmsg`,`${prefix}addlist`,`${prefix}dellist`,`${prefix}updatelist`,`${prefix}list`,`${prefix}owner`,`${prefix}listpc`,`${prefix}listgc`,`${prefix}mcserver`,`${prefix}sc`,`${prefix}ping`,`${prefix}afk`,`${prefix}cekupdate`,`${prefix}getscmd`,`${prefix}delete`,`${prefix}infochat`,`${prefix}request`,`${prefix}report`,`${prefix}donate`,`${prefix}listonline`,`${prefix}self`,`${prefix}sewa`,`${prefix}listsewa`,`${prefix}public`,`${prefix}bcall`,`${prefix}bcgroup`,`${prefix}chat`,`${prefix}antitag`,`${prefix}ban`,`${prefix}cowner`]
+const allcmd = [`${prefix}menu`,`${prefix}sticker`,`${prefix}play`,`${prefix}addlist`,`${prefix}list`,`${prefix}cerpen`,`${prefix}ytmp3`,`${prefix}ytmp4`,`${prefix}ping`,`${prefix}dashboard`,`${prefix}updatelist`,`${prefix}dellist`,`${prefix}owner`,`${prefix}cowner`,`${prefix}tes`,`${prefix}linkgroup`,`${prefix}setppgc`,`${prefix}setname`,`${prefix}setdesc`,`${prefix}ephemeral`,`${prefix}hidetag`,`${prefix}tagall`,`${prefix}promote`,`${prefix}demote`,`${prefix}upvote`,`${prefix}cekvote`,`${prefix}hapusvote`,`${prefix}antilink`,`${prefix}welcome`,`${prefix}add`,`${prefix}kick`,`${prefix}revoke`,`${prefix}group`,`${prefix}editinfo`,`${prefix}ceksewa`,`${prefix}instagram`,`${prefix}tiktok`,`${prefix}facebook`,`${prefix}igstory`,`${prefix}jpeg`,`${prefix}mp4`,`${prefix}gimage`,`${prefix}ytsearch`,`${prefix}searchgc`,`${prefix}happymod`,`${prefix}servermc`,`${prefix}mcpedl`,`${prefix}google`,`${prefix}pinterest`,`${prefix}layarkaca-search`,`${prefix}swm`,`${prefix}stickerwm`,`${prefix}emojimix`,`${prefix}tomp3`,`${prefix}tovn`,`${prefix}tourl`,`${prefix}togif`,`${prefix}tomp4`,`${prefix}toimage`,`${prefix}quotes`,`${prefix}inspect`,`${prefix}getname`,`${prefix}nulis`,`${prefix}kalkulator`,`${prefix}quoted`,`${prefix}join`,`${prefix}tohuruf`,`${prefix}volume`,`${prefix}bass`,`${prefix}blown`,`${prefix}deep`,`${prefix}earrape`,`${prefix}fast`,`${prefix}fat`,`${prefix}nightcore`,`${prefix}reverse`,`${prefix}robot`,`${prefix}slow`,`${prefix}tupai`,`${prefix}translate`,`${prefix}halah`,`${prefix}hilih`,`${prefix}huluh`,`${prefix}holoh`,`${prefix}math`,`${prefix}tictactoe`,`${prefix}delttt`,`${prefix}tebak`,`${prefix}family100`,`${prefix}suitpvp`,`${prefix}3dbox`,`${prefix}roadwarning`,`${prefix}icecold`,`${prefix}luxury`,`${prefix}cloud`,`${prefix}summersand`,`${prefix}horrorblood`,`${prefix}thunder`,`${prefix}pornhub`,`${prefix}glitch`,`${prefix}avenger`,`${prefix}space`,`${prefix}ninjalogo`,`${prefix}marvelstudio`,`${prefix}lionlogo`,`${prefix}wolflogo`,`${prefix}steel3d`,`${prefix}wallgravity`,`${prefix}merdeka-news`,`${prefix}kontan-news`,`${prefix}cnbc-news`,`${prefix}tribun-news`,`${prefix}indozone-news`,`${prefix}kompas-news`,`${prefix}detik-news`,`${prefix}daily-news`,`${prefix}inews-news`,`${prefix}okezone-news`,`${prefix}sindo-news`,`${prefix}tempo-news`,`${prefix}antara-news`,`${prefix}cnn-news`,`${prefix}fajar-news`,`${prefix}setcmd`,`${prefix}listcmd`,`${prefix}delcmd`,`${prefix}lockcmd`,`${prefix}addmsg`,`${prefix}listmsg`,`${prefix}getmsg`,`${prefix}getmsg`,`${prefix}delmsg`,`${prefix}addlist`,`${prefix}dellist`,`${prefix}updatelist`,`${prefix}list`,`${prefix}owner`,`${prefix}listpc`,`${prefix}listgc`,`${prefix}mcserver`,`${prefix}sc`,`${prefix}ping`,`${prefix}afk`,`${prefix}cekupdate`,`${prefix}getscmd`,`${prefix}delete`,`${prefix}infochat`,`${prefix}request`,`${prefix}report`,`${prefix}donate`,`${prefix}listonline`,`${prefix}self`,`${prefix}sewa`,`${prefix}listsewa`,`${prefix}public`,`${prefix}bcall`,`${prefix}bcgroup`,`${prefix}chat`,`${prefix}antitag`,`${prefix}ban`,`${prefix}cowner`]
 const isCmd = body.startsWith(prefix)
 const command = body.toLowerCase().split(' ')[0] || ''
 const Det = command.startsWith(prefix) 
@@ -181,7 +181,7 @@ await sock.sendPresenceUpdate('composing', m.chat)
 sock.sendReadReceipt(from, m.sender, [m.key.id])
 }
 if (bad.includes(body)) {
-tos = ['Astaghfirullah','Heh mulut jaga','Gapernah diajarin cara ngomong?','Dih🤢','Toxic teross']
+tos = ['Astaghfirullah jangan kasar','Heh mulut jaga','Gapernah diajarin cara ngomong?','Dih Jangan Kasar😤','Toxic teross']
 sin =  tos[Math.floor(Math.random() * (tos.length))]
 m.reply(sin) 
 }
@@ -304,7 +304,7 @@ if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebaklagu[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebaklagu[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -313,7 +313,7 @@ if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebakgambar[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebakgambar[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -322,7 +322,7 @@ if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebakkata[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebakkata[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -332,7 +332,7 @@ kuis = true
 jawaban = caklontong[m.sender.split('@')[0]]
 deskripsi = caklontong_desk[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete caklontong[m.sender.split('@')[0]]
 delete caklontong_desk[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
@@ -342,7 +342,7 @@ if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebakkalimat[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebakkalimat[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -351,7 +351,7 @@ if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebaklirik[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebaklirik[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -360,7 +360,7 @@ if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
 kuis = true
 jawaban = tebaktebakan[m.sender.split('@')[0]]
 if (budy.toLowerCase() == jawaban) {
-await sock.sendButtonText(m.chat, [{ buttonid: '##tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+await sock.sendButtonText(m.chat, [{ buttonid: '##tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, "©Deffri Gans", m)
 delete tebaktebakan[m.sender.split('@')[0]]
 } else ads('*Jawaban Salah!*')
 }
@@ -596,8 +596,8 @@ participant : '0@s.whatsapp.net'
 },
 message: {
 orderMessage: {
-itemCount : 1,
-status: 1,
+itemCount : 2022,
+status: 99999,
 surface : 1,
 message: 'GansBOTz', //Kasih namalu
 orderTitle: 'Bang',
@@ -614,7 +614,7 @@ key : {
 },
 message: {
 locationMessage: {
-name: 'Russia',
+name: 'GansBOTz',
 jpegThumbnail: log0
 }
 }
@@ -723,6 +723,8 @@ return res
  }
 }
 let head = `*╭───╼[ _GansBOTz_ ]╾──➲*`
+let beda = `╭───「 *DASHBOARD* 」───⬣*`
+let laha = `│☂︎`
 let left = "*│*"
 let branch = "*├*"
 let bracketmenu = "*┞─╼「"
@@ -738,7 +740,24 @@ let headtqto = "*╭╾─「 _Thanks To✨_ 」╾───╮*"
 let endbordertqto = "*╰╾───────────────╾╯*"
 let end = "*╰╾────────────────╼*"
 const listmn = `
-${head}
+Hallo ${m.pushName}👋
+  ${ucapanWaktu}
+  
+┌─── 「 TODAY 」───⬣
+${laha} *Days:* ${thisDaye}
+${laha} *Date:* ${jangwak}
+╰────────────⬣
+┌───「 INFO USER 」──⬣
+${laha} Name: ${m.pushName}👋
+${laha} Status: --
+${laha} Limit: No Limit
+╰────────────⬣
+⃝▣──「 *INFO CMD* 」───⬣
+│ *Ⓟ* = Premium
+│ *Ⓛ* = Limit
+▣────────────⬣
+
+${beda}
 ${left}
 ${left} Library : Baileys - Multi Device
 ${left} Language : JavaScript
@@ -800,7 +819,6 @@ ${branch} ${prefix}pinterest
 ${branch} ${prefix}layarkaca-search 
 ${bracketmenu} _Convert_ ${F} ${readmore}
 ${branch} ${prefix}sticker 
-${branch} ${prefix}smeme 
 ${branch} ${prefix}stickerwm 
 ${branch} ${prefix}tomp3 
 ${branch} ${prefix}tovn 
@@ -1001,9 +1019,9 @@ ${end}`
 switch(command) {
 case prefix+'loc': {
 var but = [{
-urlButton: {
-displayText: 'Group Whatsapp',
-url: linkgrupss
+callButton: {
+displayText: 'Number Phone Owner',
+phoneNumber: `62 895-0996-0601`
 }
 }, {
 urlButton: {
@@ -1086,10 +1104,6 @@ var _0x232dd3=_0x3c5a;function _0x1b1b(){var _0x5d0aba=['84689iYmqbl','136ojlHOf
 case prefix+'dashboard': 
 const _0x29ee60=_0x54e2;function _0x54e2(_0x18afec,_0x5a29d3){const _0x56b0f5=_0x56b0();return _0x54e2=function(_0x54e234,_0x5573fe){_0x54e234=_0x54e234-0x175;let _0x31e41f=_0x56b0f5[_0x54e234];return _0x31e41f;},_0x54e2(_0x18afec,_0x5a29d3);}(function(_0x40fed5,_0x284029){const _0x261611=_0x54e2,_0x41249a=_0x40fed5();while(!![]){try{const _0x4094f1=-parseInt(_0x261611(0x186))/0x1+parseInt(_0x261611(0x18a))/0x2*(parseInt(_0x261611(0x17c))/0x3)+parseInt(_0x261611(0x17f))/0x4*(-parseInt(_0x261611(0x179))/0x5)+parseInt(_0x261611(0x17a))/0x6+-parseInt(_0x261611(0x181))/0x7+-parseInt(_0x261611(0x175))/0x8*(parseInt(_0x261611(0x17b))/0x9)+parseInt(_0x261611(0x176))/0xa;if(_0x4094f1===_0x284029)break;else _0x41249a['push'](_0x41249a['shift']());}catch(_0x426114){_0x41249a['push'](_0x41249a['shift']());}}}(_0x56b0,0x86afe));function _0x56b0(){const _0x5a4999=['294429yGeHuk','all','today','12KxdUEl','sort','5134703WQiXqK','*DASHBOARD*\x0a\x0a*HIT*\x0aGlobal\x20Hit\x20:\x20','length','push','Load\x20Detect','475966kLqkVz','commund','slice','\x0aToday\x20Hit\x20:\x20','6vigDER','8gHFjHo','15718880AVVeVi','\x20:\x20','\x0a*Most\x20Command\x20Global*\x0a','1195345ODlVvc','6238608zFrsbs','3849345sJnvVn'];_0x56b0=function(){return _0x5a4999;};return _0x56b0();}{commund[_0x29ee60(0x180)]((_0x2a7766,_0x2f8a69)=>_0x2a7766[_0x29ee60(0x187)]<_0x2f8a69['commund']?0x1:-0x1);let top=_0x29ee60(0x182)+(hit[_0x29ee60(0x17d)]||_0x29ee60(0x185))+_0x29ee60(0x189)+(hit[_0x29ee60(0x17e)]||'Load\x20Detect')+_0x29ee60(0x178),arrTop=[];for(let i=0x0;i<commund[_0x29ee60(0x183)];i++){top+=commund[i]['id']+_0x29ee60(0x177)+commund[i]['total']+'\x0a',arrTop[_0x29ee60(0x184)](commund[i]['id']);}mentions(top,arrTop,!![]);}addCmd(command[_0x29ee60(0x188)](0x1),0x1,commund);
 break
-case prefix+'tes':
-ads('y') 
-addCmd(command.slice(1), 1, commund)
-break
 case prefix+'fajar-news':
 FajarNews().then(async(res) => {
 console.log(res) 
@@ -1118,7 +1132,34 @@ teks += ".•♫•♬.•♫••♬•♫•.•♬•♫•.•♫•♬.•
 ads(teks)
 addCmd(command.slice(1), 1, commund)
 break
-case prefix+"darkjoke":
+case prefix+'ggu': 
+                    rows: [
+                       {
+                        title: `$anjay`,
+                        description: `Mengaktifkan anjay`,
+                        rowId: `${prefix}anjay`
+                      },{
+                        title: `ikan`,
+                        description: `Menonaktifkan ikan`,
+                        rowId: `${prefix}ikan`
+                      }
+                    ]
+                   }
+                        sections.push(yy)
+                    }
+                    const sendm =  sock.sendMessage(
+      from, 
+      {
+       text: "Group Settings",
+       footer: "Only Admin Yak",
+       title: "Atur Settingan Grup anda disini......",
+       buttonText: "Click Button",
+       sections
+      }, { quoted : ftroli }
+    )  
+}
+  break
+case prefix+"darkjoke":{
 var res = await Darkjokes()
 teks = "\nDarkjokes*"
 sock.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
@@ -1462,7 +1503,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1472,7 +1513,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
-.then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+.then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
 .catch((err) => console.log(err));
 addCmd(command.slice(1), 1, commund)
 break
@@ -1483,7 +1524,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
  maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
      `${q}`,])
-    .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+    .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
     .catch((err) => console.log(err));
      addCmd(command.slice(1), 1, commund)
 break
@@ -1494,7 +1535,7 @@ case prefix+'lion2':
   ads(mess.wait)
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
-     .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+     .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
      .catch((err) => console.log(err));
      addCmd(command.slice(1), 1, commund)
 break
@@ -1505,7 +1546,7 @@ case prefix+'papercut':
       ads(mess.wait)
       maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
 `${q}`,])
-         .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+         .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
          .catch((err) => console.log(err));
          addCmd(command.slice(1), 1, commund)
 break
@@ -1516,7 +1557,7 @@ case prefix+'transformer':
       ads(mess.wait)
       maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
 `${q}`,])
-.then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+.then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
 .catch((err) => console.log(err));
 addCmd(command.slice(1), 1, commund)
 break
@@ -1529,7 +1570,7 @@ case prefix+'herryp':
        teks2 = q.split("|")[1]
        maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
  `${teks1}`,`${teks2}`])
- .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+ .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
  .catch((err) => console.log(err));
  addCmd(command.slice(1), 1, commund)
 break
@@ -1540,7 +1581,7 @@ case prefix+'neondevil':
       ads(mess.wait)
       maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
 `${q}`,])
-         .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+         .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
          .catch((err) => console.log(err));
          addCmd(command.slice(1), 1, commund)
 break
@@ -1551,7 +1592,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1562,7 +1603,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1573,7 +1614,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1584,7 +1625,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1598,7 +1639,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1606,13 +1647,13 @@ break
 
 
 case prefix+'pornhub':
-if(!q) return ads(`Penggunaan ${prefix + command} teks`)
-ads(mess.wait)
-teks1 = q.split("|")[0]
+if(!q) return ads(`Penggunaan ${prefix + command} teks1|teks2`) 
+ads(mess.wait) 
+teks1 = q.split("|")[0] 
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1624,7 +1665,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1634,7 +1675,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1648,7 +1689,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1662,7 +1703,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1676,7 +1717,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1690,7 +1731,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1702,7 +1743,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1714,7 +1755,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1726,7 +1767,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1738,7 +1779,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1750,7 +1791,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1758,13 +1799,13 @@ break
 
 
 case prefix+'bear':
-if(!q) return ads(`Penggunaan ${prefix + command} teks`)
-ads(mess.wait)
-teks1 = q.split("|")[0]
+if(!q) return ads(`Penggunaan ${prefix + command} teks1|teks2`) 
+ads(mess.wait) 
+teks1 = q.split("|")[0] 
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1772,13 +1813,13 @@ break
 
 
 case prefix+'wolf':
-if(!q) return ads(`Penggunaan ${prefix + command} teks`)
-ads(mess.wait)
-teks1 = q.split("|")[0]
+if(!q) return ads(`Penggunaan ${prefix + command} teks1|teks2`) 
+ads(mess.wait) 
+teks1 = q.split("|")[0] 
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1791,7 +1832,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1803,7 +1844,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1815,7 +1856,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1830,7 +1871,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1842,7 +1883,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1854,7 +1895,7 @@ if(!q) return ads(`Penggunaan ${prefix + command} teks`)
 ads(mess.wait)
 textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
     `${q}`,])
-  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Dont forget to donate` }, { quoted: m }))
+  .then((data) => sock.sendMessage(m.chat, { image: { url: data }, caption: `Done Nih` }, { quoted: m }))
   .catch((err) => console.log(err));
    addCmd(command.slice(1), 1, commund)
 break
@@ -1964,11 +2005,11 @@ templateMessage: {
 hydratedTemplate: {
 videoMessage: message.videoMessage,
 hydratedContentText: listmn,
-hydratedFooterText: "© DEFFBOTZ ~ DEFF",
+hydratedFooterText: `©Deffri Gans`,
 hydratedButtons: [{
-urlButton: {
-displayText: 'Group Whatsapp',
-url: linkgrupss
+callButton: {
+displayText: 'Number Phone Owner',
+phoneNumber: `62 895-0996-0601`
 }
 }, {
 urlButton: {
@@ -2090,7 +2131,7 @@ tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 await sleep(60000)
 if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "©Deffri Gans", m)
 delete tebaklagu[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'gambar') {
@@ -2103,7 +2144,7 @@ tebakgambar[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 await sleep(60000)
 if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`,"© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`,"©Deffri Gans", m)
 delete tebakgambar[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'kata') {
@@ -2116,7 +2157,7 @@ tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 await sleep(60000)
 if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "©Deffri Gans", m)
 delete tebakkata[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'kalimat') {
@@ -2129,7 +2170,7 @@ tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 await sleep(60000)
 if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "©Deffri Gans", m)
 delete tebakkalimat[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'lirik') {
@@ -2142,7 +2183,7 @@ tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 await sleep(60000)
 if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "©Deffri Gans", m)
 delete tebaklirik[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'lontong') {
@@ -2156,7 +2197,7 @@ caklontong_desk[m.sender.split('@')[0]] = result.deskripsi
 await sleep(60000)
 if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Jawaban: " + result.jawaban)
-sock.sendButtonText(m.chat, [{ buttonid: '##tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "© DEFFBOTZ ~ DEFF", m)
+sock.sendButtonText(m.chat, [{ buttonid: '##tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, "©Deffri Gans", m)
 delete caklontong[m.sender.split('@')[0]]
 delete caklontong_desk[m.sender.split('@')[0]]
 }
@@ -2306,7 +2347,7 @@ let buttonMessageVote = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks_vote,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttonsVote,
 headerType: 1
 }
@@ -2351,7 +2392,7 @@ let buttonMessageUpvote = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks_vote,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttonsUpvote,
 headerType: 1,
 mentions: menvote
@@ -2397,7 +2438,7 @@ let buttonMessageDevote = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks_vote,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttonsDevote,
 headerType: 1,
 mentions: menvote
@@ -2804,7 +2845,7 @@ let buttonMessage = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -2816,6 +2857,7 @@ break
 case prefix+'happymod': {
 if (isBan) return ads(mess.ban)
 if (!args.join(" ")) return ads(`Example : ${prefix + command} mobile legend`)
+ads(mess.wait)
 yogipw.happymod(args.join(" ")).then(async(res) => {
 teks = '```「 HappyMod Search 」```'
 for (let i of res) {
@@ -2829,7 +2871,7 @@ let buttonMessage = {
 image: {url:res[0].icon},
 jpegThumbnail: thum,
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -2841,6 +2883,7 @@ break
 case prefix+'searchgc': {
 if (isBan) return ads(mess.ban)
 if (args.length < 1) return ads(`Example :\n${prefix}searchgc Editor Berkelas`)
+ads(mess.wait)
 nae = args.join(" ")
 hx.linkwa(nae).then(res => {
 teks = '```「 Search Group 」```'
@@ -2856,11 +2899,11 @@ let buttonMessage = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
-sock.sendMessage(m.chat, buttonMessage, { quoted: m })
+sock.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
 })
 }
 addCmd(command.slice(1), 1, commund)
@@ -2880,11 +2923,11 @@ let buttonMessage = {
 image: log0,
 jpegThumbnail: thum,
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
-sock.sendMessage(m.chat, buttonMessage, { quoted: m })
+sock.sendMessage(m.chat, buttonMessage, { quoted: ftoko })
 })
 }
 addCmd(command.slice(1), 1, commund)
@@ -2910,6 +2953,7 @@ break
 case prefix+'yts': case prefix+'ytsearch': {
 if (isBan) return ads(mess.ban)
 if (!args.join(" ")) return ads(`Example : ${prefix + command} dj 30 detik`)
+ads(mess.wait)
 let yts = require("yt-search")
 let search = await yts(args.join(" "))
 let teks = '*| YOUTUBE SEARCH |*\n\n Result From '+text+'\n\n'
@@ -2925,6 +2969,7 @@ case prefix+'infochat': {
 if (isBan) return ads(mess.ban)
 if (!m.quoted) ads('Reply Pesan')
 let msg = await m.getQuotedObj()
+ads(mess.wait)
 if (!m.quoted.isBaileys) return ads('Pesan tersebut bukan dikirim oleh bot!')
 let teks = ''
 for (let i of msg.userReceipt) {
@@ -3066,8 +3111,8 @@ let buttons = [
 let buttonMessage = {
 image: log0,
 jpegThumbnail: thum,
-caption: `*「 DEFF ~ MD」*\n\nChange Info, Select Open Or Close`,
-footer: "© DEFFBOTZ ~ DEFF",
+caption: `*Deffri Gans*`,
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -3093,8 +3138,8 @@ let buttons = [
 let buttonMessage = {
 image: log0,
 jpegThumbnail: thum,
-caption: `*「 DEFF ~ MD」*\n\nChange Group Setting, Select Open Or Close`,
-footer: "© DEFFBOTZ ~ DEFF",
+caption: `*Deffri Gans*`,
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -3159,9 +3204,9 @@ displayText: 'Source Code',
 url: 'https://github.com/DEFF1602/'
 }
 }, {
-urlButton: {
-displayText: 'Group Whatsapp',
-url: linkgrupss
+callButton: {
+displayText: 'Number Phone Owner',
+phoneNumber: `62 895-0996-0601`
 }
 }, {
 quickReplyButton: {
@@ -3180,7 +3225,7 @@ id: '#sc'
 }
 }]
 let txt = `*「 Broadcast」*\n\n${text}`
-sock.send5ButImg(i, txt, "© DEFFBOTZ ~ DEFF", log0, btn, thum)
+sock.send5ButImg(i, txt, "©Deffri Gans", log0, btn, thum)
 }
 ads(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
 }
@@ -3200,9 +3245,9 @@ displayText: 'Source Code',
 url: 'https://github.com/DEFF1602'
 }
 }, {
-urlButton: {
-displayText: 'Group Whatsapp',
-url: linkgrupss
+callButton: {
+displayText: 'Number Phone Owner',
+phoneNumber: `62 895-0996-0601`
 }
 }, {
 quickReplyButton: {
@@ -3221,35 +3266,59 @@ id: '#sc'
 }
 }]
 let txt = `*「 Broadcast」*\n\n${text}`
-sock.send5ButImg(yoi, txt, "© DEFFBOTZ ~ DEFF", log0, btn, thum)
+sock.send5ButImg(yoi, txt, "©Deffri Gans", log0, btn, thum)
 }
 ads('Sukses Broadcast')
 }
 addCmd(command.slice(1), 1, commund)
 break
-case prefix+'sc': case prefix+'script': case prefix+'donate': case prefix+'donasi': case prefix+'cekupdate': case prefix+'updatebot': case prefix+'cekbot': case prefix+'sourcecode': {
-teks = `「 DEFF ~ MD」\nhttps://youtube.com/channel/UCSAcYW8MkFyaVQz9asa3q5Q`
-teks += `Dont Forget Donate`
+case prefix+'runtime': case prefix+'test': case prefix+'tes': {
+teks = `   Aktif Selama\n${runtime(process.uptime())}`
 let buttons = [
-{buttonId: `${prefix}menu`, buttonText: {displayText: 'Menu'}, type: 1}
+{buttonId: `.menu`, buttonText: {displayText: 'MENU'}, type: 1}
 ]
 let buttonMessage = {
 image: thum,
 jpegThumbnail: log0,
 caption: teks,
-footer: "©DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"DEFF ~ MD Qris ( Donate )",
-body: "©DEFF", 
+title:"Follow My Instagram",
+body: "Click Here", 
 thumbnail: fs.readFileSync("worker/media/image/Deff.jpg"),
 mediaType:1,
-mediaUrl: 'https://telegra.ph/file/40762e97a434e17ba3d75.jpg',
-sourceUrl: "https://telegra.ph/file/40762e97a434e17ba3d75.jpg"
+mediaUrl: 'https://instagram.com/b4c00t.dtz',
+sourceUrl: "https://instagram.com/b4c00t.dtz"
 }}
 }
-sock.sendMessage(m.chat, buttonMessage, { quoted: m })
+sock.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
+}
+addCmd(command.slice(1), 1, commund)
+break
+case prefix+'sc': case prefix+'script': case prefix+'donate': case prefix+'donasi': case prefix+'cekupdate': case prefix+'updatebot': case prefix+'cekbot': case prefix+'sourcecode': {
+teks = `Nih Bg Sc nya\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://youtube.com/channel/UCSAcYW8MkFyaVQz9asa3q5Q`
+let buttons = [
+{buttonId: `Thanks`, buttonText: {displayText: 'Thanks Bang'}, type: 1}
+]
+let buttonMessage = {
+image: thum,
+jpegThumbnail: log0,
+caption: teks,
+footer: "©Deffri Gans",
+buttons: buttons,
+headerType: 4,
+contextInfo:{externalAdReply:{
+title:"Follow My Instagram",
+body: "Click Here", 
+thumbnail: fs.readFileSync("worker/media/image/Deff.jpg"),
+mediaType:1,
+mediaUrl: 'https://instagram.com/b4c00t.dtz',
+sourceUrl: "https://instagram.com/b4c00t.dtz"
+}}
+}
+sock.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
 }
 addCmd(command.slice(1), 1, commund)
 break
@@ -3680,12 +3749,12 @@ caption: `*| GOOGLE IMAGE |*
 
 🤠 Query : ${text}
 🔗 Media Url : ${images}`,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -3725,12 +3794,12 @@ let buttons = [
 let buttonMessage = {
 image: { url: imgnyee },
 caption:  '⭔ Title : ' + args.join(" ") + '\n⭔ Media Url : '+imgnyee,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -3770,7 +3839,7 @@ let buttonMessage = {
 image:log0,
 jpegThumbnail:thum,
 caption: textbv,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -3807,7 +3876,7 @@ let buttonMessage = {
 image:log0,
 jpegThumbnail:thum,
 caption: textbv,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4
 }
@@ -3835,8 +3904,8 @@ if (isBan) return ads(mess.ban)
 if (!args[0]) return ads("Linknya mana kak?")
 try {
 sock.sendMessage(from, {video:{url:args[0]}, caption:"Succes", contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -3853,8 +3922,8 @@ if (isBan) return ads(mess.ban)
 if (!args[0]) return ads("Linknya mana kak?")
 try {
 sock.sendMessage(from, {image:{url:args[0]}, caption:"Succes", contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -3886,7 +3955,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:lotwit.medias[1].url},
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -3913,7 +3982,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:args[0]},
 caption: "Done!",
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -3947,7 +4016,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:resd.medias[0].url},
 caption: teks,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -3974,7 +4043,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:args[0]},
 caption: "Done!",
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -4009,7 +4078,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:res.medias[1].url},
 caption: texttk,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -4058,7 +4127,7 @@ let buttons = [
 let buttonMessage = {
 video: {url:res.medias[0].url},
 caption: texttk,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
@@ -4098,12 +4167,12 @@ caption: `*| YOUTUBE PLAY |*
 ⭔ Channel : ${anu.author.url}
 ⭔ Description : ${anu.description}
 ⭔ Url : ${anu.url}`,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
 title: anu.title,
-body: "© DEFFBOTZ ~ DEFF",
+body: "©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: anu.url,
@@ -4133,12 +4202,12 @@ let buttons = [
 let buttonMessage = {
 image: {url:res.thumb},
 caption: textyt,
-footer: "© DEFFBOTZ ~ DEFF",
+footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
 title: res.title,
-body: "© DEFFBOTZ ~ DEFF",
+body: "©Deffri Gans",
 thumbnail: {url:res.thumb},
 mediaType:2,
 mediaUrl: args[0],
@@ -4156,8 +4225,8 @@ break
 case prefix+'ytvd': {
 if (isBan) return ads(mess.ban)
 sock.sendMessage(from, {video:{url:args[0]}, mimetype:"video/mp4", caption:"Success", contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -4169,8 +4238,8 @@ break
 case prefix+'ytad': {
 if (isBan) return ads(mess.ban)
 sock.sendMessage(from, {audio:{url:args[0]}, mimetype:"audio/mp4", ptt:true, contextInfo:{externalAdReply:{
-title:"DEFFBOTZ - By Deff",
-body:"© DEFFBOTZ ~ DEFF",
+title:"GansBOTz",
+body:"©Deffri Gans",
 thumbnail: log0,
 mediaType:2,
 mediaUrl: "https://youtu.be/TmX43Io_v8s",
@@ -4199,27 +4268,6 @@ let encmedia = await sock.sendVideoAsSticker(m.chat, media, m, { packname: pcknm
 await fs.unlinkSync(encmedia)
 } else {
 ads(`Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`)
-}
-}
-addCmd(command.slice(1), 1, commund)
-break
-case prefix+'smeme': case prefix+'smm': {
-if (isBan) return ads(mess.ban)
-if (!args.join(" ")) return ads("Masukan Textnya!")
-if (/image/.test(mime)) {
-var media = await sock.downloadAndSaveMediaMessage(quoted, "smeme")
-imgbbUploader('b9a90f1e63f41bac31532712c87e4c25', media)
-.then(async (data) => {
-var bgsd = args.join(" ")
-var urls = data.display_url
-let meme = `https://api.memegen.link/images/custom/ /${bgsd}.png?background=${urls}`
-sock.sendImageAsSticker(m.chat, meme, m, { packname:global.packname, author: global.packname2 })
-})
-.catch(err => {
-throw err
-})
-} else {
-ads("Kirim foto dengan caption smeme")
 }
 }
 addCmd(command.slice(1), 1, commund)
