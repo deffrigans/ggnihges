@@ -1132,34 +1132,7 @@ teks += ".•♫•♬.•♫••♬•♫•.•♬•♫•.•♫•♬.•
 ads(teks)
 addCmd(command.slice(1), 1, commund)
 break
-case prefix+'ggu': 
-                    rows: [
-                       {
-                        title: `$anjay`,
-                        description: `Mengaktifkan anjay`,
-                        rowId: `${prefix}anjay`
-                      },{
-                        title: `ikan`,
-                        description: `Menonaktifkan ikan`,
-                        rowId: `${prefix}ikan`
-                      }
-                    ]
-                   }
-                        sections.push(yy)
-                    }
-                    const sendm =  sock.sendMessage(
-      from, 
-      {
-       text: "Group Settings",
-       footer: "Only Admin Yak",
-       title: "Atur Settingan Grup anda disini......",
-       buttonText: "Click Button",
-       sections
-      }, { quoted : ftroli }
-    )  
-}
-  break
-case prefix+"darkjoke":{
+case prefix+"darkjoke":
 var res = await Darkjokes()
 teks = "\nDarkjokes*"
 sock.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
