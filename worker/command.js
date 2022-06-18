@@ -149,7 +149,6 @@ const cmdBotHarian = require('util').inspect(hit.today)
 const isBan = banUser.includes(m.sender)
 const isRakyat = isCreator || global.rkyt.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
 const AntiLink = m.isGroup ? ntilink.includes(from) : false
-const welcm = m.isGroup ? wlcm.includes(from) : false
 const GcRvk = m.isGroup ? gcrevoke.includes(from) : false
 
 // Quoted
@@ -769,7 +768,6 @@ ${left}
 ${bracketmenu} PROFILE GROUP ${F} 
 ${left} Antilink : ${AntiLink? "on" : "off"}
 ${left} Autorevoke : ${GcRvk? "on" : "off"}
-${left} Welcome : ${welcm? "on" : "off"}
 ${closing}
 ${readmore}
 ${head}
@@ -1961,6 +1959,36 @@ await fs.unlinkSync(encmedia)
 }
 addCmd(command.slice(1), 1, commund)
 break
+case 'jodohku': {
+            if (!m.isGroup) throw mess.group
+            let member = participants.map(u => u.id)
+            let me = m.sender
+            let jodoh = member[Math.floor(Math.random() * member.length)]
+            let jawab = `👫Jodoh mu adalah
+
+@${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
+            let ments = [me, jodoh]
+            let buttons = [
+                        { buttonId: 'jodohku', buttonText: { displayText: 'Jodohku' }, type: 1 }
+                    ]
+                    await sock.sendButtonText(m.chat, buttons, jawab, sock.user.name, m, {mentions: ments})
+            }
+            break
+            case 'jadian': {
+            if (!m.isGroup) throw mess.group
+            let member = participants.map(u => u.id)
+            let orang = member[Math.floor(Math.random() * member.length)]
+            let jodoh = member[Math.floor(Math.random() * member.length)]
+            let jawab = `Ciee yang Jadian💖 Jangan lupa pajak jadiannya🐤
+
+@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
+            let menst = [orang, jodoh]
+            let buttons = [
+                        { buttonId: 'jadian', buttonText: { displayText: 'Jodohku' }, type: 1 }
+                    ]
+                    await sock.sendButtonText(m.chat, buttons, jawab, sock.user.name, m, {mentions: menst})
+            }
+            break
 case prefix+'getcase':
 if (m.isGroup) throw mess.private
 if (!isCreator) return reply(mess.owner)
@@ -2602,27 +2630,6 @@ convertes = await toHur(quere)
 ads(`\`\`\`「 ALPHABET 」\`\`\`\n*•> Number :*\n${quere}\n*•> Alphabet :*\n${convertes}`)
 } catch {
 ads("Error")
-}
-}
-addCmd(command.slice(1), 1, commund)
-break
-case prefix+'welcome': {
-if (isBan) return ads(mess.ban)
-if (!m.isGroup) return ads(mess.group)
-if (!isBotAdmins) return ads(mess.botAdmin)
-if (!isAdmins && !isCreator) return ads(mess.admin)
-if (args.length < 1) return ads('ketik on untuk mengaktifkan\nketik off untuk menonaktifkan')
-if (args[0] === "on") {
-if (welcm) return ads('Sudah Aktif')
-wlcm.push(from)
-ads('Succes menyalakan welcome di group ini')
-} else if (args[0] === "off") {
-if (!welcm) return ads('Sudah Mati')
-let off = wlcm.indexOf(from)
-wlcm.splice(off, 1)
-ads('Succes mematikan welcome di group ini')
-} else {
-ads('on untuk mengaktifkan, off untuk menonaktifkan')
 }
 }
 addCmd(command.slice(1), 1, commund)
@@ -3932,7 +3939,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Twitter Downloader",
+title:"Deffri Gans ~ Twitter Downloader",
 body:lotwit.title ? lotwit.title : "Twitter Downloader",
 thumbnail: log0,
 mediaType:1,
@@ -3959,7 +3966,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Twitter Downloader",
+title:"Deffri Gans ~ Twitter Downloader",
 body: "Twitter Downloader",
 thumbnail: log0,
 mediaType:1,
@@ -3993,7 +4000,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Facebook Downloader",
+title:"Deffri Gans ~ Facebook Downloader",
 body:"facebook downloader",
 thumbnail: log0,
 mediaType:1,
@@ -4020,7 +4027,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Facebook Downloader",
+title:"Deffri Gans",
 body: " Facebook Downloader",
 thumbnail: log0,
 mediaType:1,
@@ -4055,7 +4062,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Tiktok Downloader",
+title:"Deffri Gans",
 body:res.title,
 thumbnail: log0,
 mediaType:1,
@@ -4074,7 +4081,7 @@ case prefix+'ttad': {
 if (isBan) return ads(mess.ban)
 let res = await aiovideodl(args[0])
 sock.sendMessage(from, {audio:{url:res.medias[2].url}, mimetype:"audio/mp4", ptt:true, contextInfo:{externalAdReply:{
-title:"Deff Official ~ Tiktok Downloader",
+title:"Deffri Gans",
 body:res.title,
 thumbnail: log0,
 mediaType:1,
@@ -4104,7 +4111,7 @@ footer: "©Deffri Gans",
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"Deff Official ~ Tiktok Downloader",
+title:"Deffri Gans",
 body:res.title,
 thumbnail: log0,
 mediaType:1,
