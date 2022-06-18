@@ -42,7 +42,7 @@ console.log(color('[WARNING]', 'cyan'), color(`INGFO CREATOR`, 'yellow'))
 console.log(color('Instagram :', 'cyan'), color(`@deff.xyz`, 'yellow'))
 console.log(color('Github :', 'cyan'), color(`@DEFF1602`, 'yellow'))
 console.log(color('Wangsap :', 'cyan'), color(`089501060783`, 'yellow'))
-console.log(color('\n', 'cyan'), color('\nWelcome back, Owner! Hope you are doing well~', 'yellow'))
+console.log(color('\n', 'cyan'), color('\nSelamat datang kembali, owner! Semoga kamu baik-baik saja~', 'yellow'))
 
 sock.browserDescription = ["GansBOTz", "Mac", "3.0.0"];
 sock.ev.on('messages.upsert', async chatUpdate => {
@@ -79,72 +79,12 @@ sock.ev.on('group-participants.update', async (anu) => {
                 } catch {
                     ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
-if (anu.action == 'add') {
-                hesa = `${participants}`
-		  mestes = (teks) => {
-					return teks.replace(/['@s whatsapp.net']/g, " ");
-					}
-			resa = `${mestes(hesa)}`
-                const jm = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-			let d = new Date
-				let locale = 'id'
-					let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
-					let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
-					let week = d.toLocaleDateString(locale, { weekday: 'long' })
-					let calender = d.toLocaleDateString(locale, {
-				day: 'numeric',
-				month: 'long',
-				year: 'numeric'
-				})
-                orgnye = num
-                mbc = `Welcome @${orgnye.split("@")[0]}
-                To Group ${metadata.subject}
-
-Jangan Lupa Intro Kak Biar Kita Saling Kenal😁`
-let buttons = [
-{buttonId: `Welcome🤗`, buttonText: {displayText: 'Welcome 🤗'}, type: 1}
-]
-let buttonMessage = {
-image: await getBuffer(ppuser), 
-caption: mbc,
-footer: "©Create By Deffri",
-mentions:[orgnye],
-buttons: buttons,
-headerType: 4,
-}
-sock.sendMessage(m.chat, buttonMessage)
-
-                } else if (anu.action == 'remove') {
-                hesa = `${participants}`
-		  mestes = (teks) => {
-					return teks.replace(/['@s whatsapp.net']/g, " ");
-					}
-			resa = `${mestes(hesa)}`
-const jamny = moment.tz('Asia/Jakarta').format('HH:mm:ss')
-			let d = new Date
-				let locale = 'id'
-					let gmt = new Date(0).getTime() - new Date('1 Janua@ri 2021').getTime()
-					let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
-					let week = d.toLocaleDateString(locale, { weekday: 'long' })
-					let calender = d.toLocaleDateString(locale, {
-				day: 'numeric',
-				month: 'long',
-				year: 'numeric'
-				})
-                    orgnye = num
-                mbbc = `@${num.split("@")[0]} Leaving To ${metadata.subject}`
- let buttons = [
-{buttonId: `GoodBye👋`, buttonText: {displayText: 'GoodBye 👋'}, type: 1}
-]
-let buttonMessage = {
-image: await getBuffer(ppuser), 
-caption: mbbc,
-footer: "©Create Deffri Gans",
-mentions:[orgnye],
-buttons: buttons,
-headerType: 4,
-}
-sock.sendMessage(m.chat, buttonMessage)
+		if (anu.action == "add") {
+		   var but = [{buttonId: `/`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
+				sock.sendMessage(anu.id, { caption: `Hallo @${num.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nJangan Lupa Intro Yah kak, Biar Saling Kenal 😁`, image: {url: ppuser}, buttons: but, footer: `©Created By Deffri Gans`, mentions: [num]})
+		} else if (anu.action == "remove") {
+		  var but = [{buttonId: `/`, buttonText: { displayText: "Selamat Tinggal Beban 👋" }, type: 1 }]
+				sock.sendMessage(anu.id, { caption: `@${num.split("@")[0]} Leaving From ${metadata.subject} \n\n Byeee @${num.split("@")[0]} 👋 Semoga Tenang Di Alam Sana:v`, image: {url: ppuser}, buttons: but, footer: `©Created By Deffri Gans`, mentions: [num]})
                
                 }
             }
