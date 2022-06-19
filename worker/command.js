@@ -4270,81 +4270,61 @@ addCmd(command.slice(1), 1, commund)
 break
 // Eval Ada Disini
 default:
-                if (budy.startsWith('=>')) {
-                    if (!isCreator) return m.reply(mess.owner)
-                    function Return(sul) {
-                        sat = JSON.stringify(sul, null, 2)
-                        bang = util.format(sat)
-                            if (sat == undefined) {
-                                bang = util.format(sul)
-                            }
-                            return m.reply(bang)
-                    }
-                    try {
-                        m.reply(util.format(eval(`(async () => { return ${budy.slice(3)} })()`)))
-                    } catch (e) {
-                        m.reply(String(e))
-                    }
-                }
+function _0x51c7(){var _0x40ebaa=['200gwjkcY','1055zsTmGJ','11879656EHMKlk','819042XFTThs','3025077yOsLDk','reply','42AItxAt','*Maksud\x20kamu\x20','1310778jfUBST','floor','random','1453653UfYIYB','length','isGroup','547870lAJaft','23360AFIjRS'];_0x51c7=function(){return _0x40ebaa;};return _0x51c7();}function _0x39c7(_0x58004b,_0x3a3997){var _0x51c70d=_0x51c7();return _0x39c7=function(_0x39c7c4,_0x472436){_0x39c7c4=_0x39c7c4-0xbc;var _0x55749f=_0x51c70d[_0x39c7c4];return _0x55749f;},_0x39c7(_0x58004b,_0x3a3997);}var _0x24d421=_0x39c7;(function(_0x1ab7bd,_0x4d0ab3){var _0x4850c1=_0x39c7,_0x2ea28a=_0x1ab7bd();while(!![]){try{var _0x31f7a3=-parseInt(_0x4850c1(0xc7))/0x1+-parseInt(_0x4850c1(0xca))/0x2+-parseInt(_0x4850c1(0xc0))/0x3+parseInt(_0x4850c1(0xcb))/0x4*(parseInt(_0x4850c1(0xbd))/0x5)+parseInt(_0x4850c1(0xc2))/0x6*(parseInt(_0x4850c1(0xbf))/0x7)+-parseInt(_0x4850c1(0xbe))/0x8+-parseInt(_0x4850c1(0xc4))/0x9*(-parseInt(_0x4850c1(0xbc))/0xa);if(_0x31f7a3===_0x4d0ab3)break;else _0x2ea28a['push'](_0x2ea28a['shift']());}catch(_0x2bd296){_0x2ea28a['push'](_0x2ea28a['shift']());}}}(_0x51c7,0xb5732));isCmd&&!m[_0x24d421(0xc9)]&&(deff=allcmd[Math['floor'](Math[_0x24d421(0xc6)]()*allcmd[_0x24d421(0xc8)])],anu=did(command,allcmd),anu2=sim(command,anu),detect('*Maksud\x20kamu\x20'+(anu||''+deff)+'?*'));isCmd&&m['isGroup']&&(deff=allcmd[Math[_0x24d421(0xc5)](Math[_0x24d421(0xc6)]()*allcmd[_0x24d421(0xc8)])],anu=did(command,allcmd),anu2=sim(command,anu),m[_0x24d421(0xc1)](_0x24d421(0xc3)+(anu||''+deff)+'?*'));
+if (budy.startsWith('=>')) {
+if (!isCreator) return ads(mess.owner)
+function Return(sul) {
+sat = JSON.stringify(sul, null, 2)
+bang = util.format(sat)
+if (sat == undefined) {
+bang = util.format(sul)
+}
+return ads(bang)
+}
+try {
+ads(util.format(eval(`(async () => { ${budy.slice(3)} })()`)))
+} catch (e) {
+ads(String(e))
+}
+}
+if (budy.startsWith('>')) {
+if (!isCreator) return ads(mess.owner)
+try {
+let evaled = await eval(budy.slice(2))
+if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
+await ads(evaled)
+} catch (err) {
+ads(String(err))
+}
+}
 
-                if (budy.startsWith('>')) {
-                    if (!isCreator) return m.reply(mess.owner)
-                    try {
-                        let evaled = await eval(budy.slice(2))
-                        if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
-                        await m.reply(evaled)
-                    } catch (err) {
-                        await m.reply(String(err))
-                    }
-                }
+if (budy.startsWith('$')) {
+if (!isCreator) return ads(mess.owner)
+exec(budy.slice(2), (err, stdout) => {
+if(err) return sock.sendMessage(from, {image:err4r, caption:String(err)}, {quoted:m})
+if (stdout) return ads(stdout)
+})
+}
+if (isCmd && budy.toLowerCase() != undefined) {
+if (m.chat.endsWith('broadcast')) return
+if (m.isBaileys) return
+let msgs = global.db.database
+if (!(budy.includes() in msgs)) return
+sock.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
+}
 
-                if (budy.startsWith('$')) {
-                    if (!isCreator) return m.reply(mess.owner)
-                    exec(budy.slice(2), (err, stdout) => {
-                        if(err) return m.reply(err)
-                        if (stdout) return m.reply(stdout)
-                    })
-                }
-			
-		if (m.chat.endsWith('@s.whatsapp.net') && isCmd) {
-                    this.anonymous = this.anonymous ? this.anonymous : {}
-                    let room = Object.values(this.anonymous).find(room => [room.a, room.b].includes(m.sender) && room.state === 'CHATTING')
-                    if (room) {
-                        if (/^.*(next|leave|start)/.test(m.text)) return
-                        if (['.next', '.leave', '.stop', '.start', 'Cari Partner', 'Keluar', 'Lanjut', 'Stop'].includes(m.text)) return
-                        let other = [room.a, room.b].find(user => user !== m.sender)
-                        m.copyNForward(other, true, m.quoted && m.quoted.fromMe ? {
-                            contextInfo: {
-                                ...m.msg.contextInfo,
-                                forwardingScore: 0,
-                                isForwarded: true,
-                                participant: other
-                            }
-                        } : {})
-                    }
-                    return !0
-                }
-			
-		if (isCmd && budy.toLowerCase() != undefined) {
-		    if (m.chat.endsWith('broadcast')) return
-		    if (m.isBaileys) return
-		    let msgs = global.db.data.database
-		    if (!(budy.toLowerCase() in msgs)) return
-		    sock.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
-		}
-        }
-        
-
-    } catch (err) {
-        m.reply(util.format(err))
-    }
+}
+} catch (err) {
+sock.sendMessage("6289501060783@s.whatsapp.net", util.format(err), {quoted:m})
+console.log(err)
+}
 }
 
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
-	fs.unwatchFile(file)
-	console.log(chalk.redBright(`Update ${__filename}`))
-	delete require.cache[file]
-	require(file)
+fs.unwatchFile(file)
+console.log(chalk.redBright(`Update ${__filename}`))
+delete require.cache[file]
+require(file)
 })
