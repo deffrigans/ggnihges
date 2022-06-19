@@ -535,6 +535,37 @@ delete this.game[room.id]
 }
 }
 
+ /** Send List Messaage
+      */
+        sock.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
+        let sections = sects
+        var listMes = {
+        text: text,
+        footer: footer,
+        title: title,
+        buttonText: butText,
+        sections
+        }
+        sock.sendMessage(jid, listMes, { quoted: quoted })
+        }
+        //5 but loc
+sock.send5ButLoc = async (jid , text = '' , footer = '', lok, but = [], options = {}) =>{
+       var template = generateWAMessageFromContent(jid, {
+       "templateMessage": {
+       "hydratedTemplate": {
+       "locationMessage": {
+       "degreesLatitude": 0,
+       "degreesLongitude": 0,
+       "jpegThumbnail": log0
+       },
+       "hydratedContentText": text,
+       "hydratedFooterText": footer,
+       "hydratedButtons": but
+       }
+       }
+       }, options)
+       sock.relayMessage(jid, template.message, { messageId: template.key.id })
+      }
 // Respon Cmd with media
 if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.sticker)) {
 let hash = global.db.sticker[m.msg.fileSha256.toString('base64')]
@@ -1266,7 +1297,7 @@ teks += `Berita: ${i.berita}\n`
 teks += `Link: ${i.berita_url}\n`
 }
 teks += ".•♫•♬.•♫••♬•♫•.•♬•♫•.•♫•♬.•♫••♬•♫•.•♬•♫•."
-sock.sendMessage(m.chat, { image : { url : res[0].berita_thumb }, caption: teks }, { quoted : m })
+sock.sendMessage(m.chat, { image : { url : res[0].berita_log0 }, caption: teks }, { quoted : m })
 
 })
 addCmd(command.slice(1), 1, commund)
@@ -2008,14 +2039,314 @@ addCmd(command.slice(1), 1, commund)
 break
 case prefix+'menu': case prefix+'help': {
 if (isBan) return ads(mess.ban)
-let message = await prepareWAMessageMedia({ video: fs.readFileSync('./worker/media/video/Deff.mp4'), gifPlayback:true, jpegThumbnail:global.log0 }, { upload: sock.waUploadToServer })
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-templateMessage: {
-hydratedTemplate: {
-videoMessage: message.videoMessage,
-hydratedContentText: listmn,
-hydratedFooterText: `©Deffri Gans`,
-hydratedButtons: [{
+deffri = `Deffri Gans`
+                anu = `Hallo ${m.pushName}👋
+  ${ucapanWaktu}
+  
+┌─── 「 TODAY 」───⬣
+${laha} *Days:* ${thisDaye}
+${laha} *Date:* ${jangwak}
+╰────────────⬣
+┌───「 INFO USER 」──⬣
+${laha} Name: ${m.pushName}👋
+${laha} Status: --
+${laha} Limit: No Limit
+╰────────────⬣
+⃝▣──「 *INFO CMD* 」───⬣
+│ *Ⓟ* = Premium
+│ *Ⓛ* = Limit
+▣────────────⬣`
+                let btn = [{
+callButton: {
+displayText: 'Number Phone Owner',
+phoneNumber: `62 895-0996-0601`
+}
+}, {
+urlButton: {
+displayText: 'Instagram',
+url: 'https://instagram.com/deff.xyz'
+}
+}, {
+quickReplyButton: {
+displayText: '📄List Menu',
+id: '#command'
+}
+}, {
+quickReplyButton: {
+displayText: '📞Owner',
+id: '#owner'
+}  
+}, {
+quickReplyButton: {
+displayText: '🤖Status',
+id: '#ping'
+}
+                            }]
+                        sock.send5ButLoc(m.chat, anu, deffri, global.thumb, btn)
+                     }
+            break
+case prefix+'allmenu': {
+if (isBan) return ads(mess.ban)
+deffri = `Deffri Gans`
+                anu = `Hallo ${m.pushName}👋
+  ${ucapanWaktu}
+
+${beda}
+${left}
+${left} Library : Baileys - Multi Device
+${left} Language : JavaScript
+${left}
+${bracketmenu} PROFILE BOT ${F} 
+${left} Owner : ${owner.length}
+${left} Rakyat : ${rkyt.length}
+${left}
+${bracketmenu} PROFILE GROUP ${F} 
+${left} Antilink : ${AntiLink? "on" : "off"}
+${left} Autorevoke : ${GcRvk? "on" : "off"}
+${closing}
+${readmore}
+${head}
+${bracketmenu} _Group_ ${F} 
+${branch} ${prefix}linkgroup 
+${branch} ${prefix}setppgc 
+${branch} ${prefix}setname 
+${branch} ${prefix}setdesc 
+${branch} ${prefix}ephemeral 
+${branch} ${prefix}hidetag 
+${branch} ${prefix}tagall 
+${branch} ${prefix}promote 
+${branch} ${prefix}demote 
+${branch} ${prefix}vote 
+${branch} ${prefix}devote 
+${branch} ${prefix}upvote 
+${branch} ${prefix}cekvote 
+${branch} ${prefix}hapusvote 
+${branch} ${prefix}antilink <on/off>
+${branch} ${prefix}welcome <on/off>
+${branch} ${prefix}autorevoke <on/off>
+${branch} ${prefix}add 
+${branch} ${prefix}kick 
+${branch} ${prefix}revoke 
+${branch} ${prefix}group <open/close>
+${branch} ${prefix}editinfo <open/close>
+${branch} ${prefix}ceksewa 
+${bracketmenu} _Downloader_ ${F} ${readmore}
+${branch} ${prefix}instagram 
+${branch} ${prefix}tiktok 
+${branch} ${prefix}twitter 
+${branch} ${prefix}facebook 
+${branch} ${prefix}youtube 
+${branch} ${prefix}igstory 
+${branch} ${prefix}jpeg 
+${branch} ${prefix}mp4 
+${bracketmenu} _Search_ ${F}
+${branch} ${prefix}gimage 
+${branch} ${prefix}ytsearch 
+${branch} ${prefix}searchgc 
+${branch} ${prefix}play 
+${branch} ${prefix}happymod 
+${branch} ${prefix}servermc 
+${branch} ${prefix}mcpedl 
+${branch} ${prefix}google 
+${branch} ${prefix}pinterest 
+${branch} ${prefix}layarkaca-search 
+${bracketmenu} _Convert_ ${F} ${readmore}
+${branch} ${prefix}sticker 
+${branch} ${prefix}stickerwm 
+${branch} ${prefix}tomp3 
+${branch} ${prefix}tovn 
+${branch} ${prefix}toaudio 
+${branch} ${prefix}togif 
+${branch} ${prefix}tourl 
+${branch} ${prefix}tomp4 
+${branch} ${prefix}toimage 
+${bracketmenu} _Text Feature_ ${F} ${readmore}
+${branch} ${prefix}cerpen <query in the list>
+${branch} ${prefix}quotes 
+${bracketmenu} _Tools_ ${F} 
+${branch} ${prefix}inspect 
+${branch} ${prefix}getname 
+${branch} ${prefix}getpic 
+${branch} ${prefix}nulis 
+${branch} ${prefix}kalkulator 
+${branch} ${prefix}quoted 
+${branch} ${prefix}join 
+${branch} ${prefix}fliptext 
+${branch} ${prefix}tohuruf 
+${branch} ${prefix}volume 
+${branch} ${prefix}bass
+${branch} ${prefix}blown
+${branch} ${prefix}deep
+${branch} ${prefix}earrape
+${branch} ${prefix}fast
+${branch} ${prefix}fat
+${branch} ${prefix}nightcore
+${branch} ${prefix}reverse
+${branch} ${prefix}robot
+${branch} ${prefix}slow
+${branch} ${prefix}tupai
+${branch} ${prefix}translate 
+${bracketmenu} _Fun_ ${F} ${readmore}
+${branch} ${prefix}halah 
+${branch} ${prefix}hilih 
+${branch} ${prefix}huluh 
+${branch} ${prefix}heleh 
+${branch} ${prefix}holoh 
+${branch} ${prefix}math 
+${branch} ${prefix}tictactoe 
+${branch} ${prefix}delttt 
+${branch} ${prefix}tebak 
+${branch} ${prefix}family100 
+${branch} ${prefix}suitpvp 
+${bracketmenu} _Sticker Telegram_ ${F} ${readmore}
+${branch} ${prefix}emoji 
+${branch} ${prefix}emojimix 
+${branch} ${prefix}attp 
+${branch} ${prefix}doge unde
+${branch} ${prefix}patrick
+${branch} ${prefix}bucinsticker
+${bracketmenu} _Maker_ ${F} 
+${branch} ${prefix}3dbox   
+${branch} ${prefix}drapwater   
+${branch} ${prefix}lion2   
+${branch} ${prefix}papercut   
+${branch} ${prefix}transformer   
+${branch} ${prefix}herryp   
+${branch} ${prefix}neondevil   
+${branch} ${prefix}3dstone   
+${branch} ${prefix}3davengers   
+${branch} ${prefix}thunder   
+${branch} ${prefix}window   
+${branch} ${prefix}graffiti   
+${branch} ${prefix}pornhub   
+${branch} ${prefix}glitch   
+${branch} ${prefix}blackping   
+${branch} ${prefix}glitch3   
+${branch} ${prefix}glitch2   
+${branch} ${prefix}3dspace   
+${branch} ${prefix}lion   
+${branch} ${prefix}3dneon   
+${branch} ${prefix}neon   
+${branch} ${prefix}greenneon   
+${branch} ${prefix}bokeh   
+${branch} ${prefix}hollographic   
+${branch} ${prefix}bear   
+${branch} ${prefix}wolf   
+${branch} ${prefix}joker   
+${branch} ${prefix}dropwater   
+${branch} ${prefix}neonlight   
+${branch} ${prefix}thewall   
+${branch} ${prefix}natural   
+${branch} ${prefix}carbon   
+${branch} ${prefix}pencil   
+${branch} ${prefix}blackpink  
+${branch} ${prefix}neon  
+${branch} ${prefix}greenneon  
+${branch} ${prefix}advanceglow  
+${branch} ${prefix}futureneon  
+${branch} ${prefix}sandwriting  
+${branch} ${prefix}sandsummer  
+${branch} ${prefix}sandengraved  
+${branch} ${prefix}metaldark  
+${branch} ${prefix}neonlight  
+${branch} ${prefix}holographic  
+${branch} ${prefix}text1917  
+${branch} ${prefix}minion  
+${branch} ${prefix}deluxesilver  
+${branch} ${prefix}newyearcard  
+${branch} ${prefix}bloodfrosted  
+${branch} ${prefix}halloween  
+${branch} ${prefix}jokerlogo  
+${branch} ${prefix}fireworksparkle  
+${branch} ${prefix}natureleaves  
+${branch} ${prefix}bokeh  
+${branch} ${prefix}toxic  
+${branch} ${prefix}strawberry  
+${branch} ${prefix}box3d  
+${branch} ${prefix}roadwarning  
+${branch} ${prefix}icecold  
+${branch} ${prefix}luxury  
+${branch} ${prefix}cloud  
+${branch} ${prefix}summersand  
+${branch} ${prefix}horrorblood  
+${branch} ${prefix}thunder  
+${branch} ${prefix}pornhub  
+${branch} ${prefix}glitch  
+${branch} ${prefix}avenger  
+${branch} ${prefix}space  
+${branch} ${prefix}ninjalogo  
+${branch} ${prefix}marvelstudio  
+${branch} ${prefix}lionlogo  
+${branch} ${prefix}wolflogo  
+${branch} ${prefix}steel3d  
+${branch} ${prefix}wallgravity  
+${bracketmenu} _Information_ ${F} ${readmore}
+${branch} ${prefix}merdeka-news 
+${branch} ${prefix}kontan-news 
+${branch} ${prefix}cnbc-news 
+${branch} ${prefix}tribun-news 
+${branch} ${prefix}indozone-news 
+${branch} ${prefix}kompas-news 
+${branch} ${prefix}detik-news 
+${branch} ${prefix}daily-news 
+${branch} ${prefix}inews-news 
+${branch} ${prefix}okezone-news 
+${branch} ${prefix}sindo-news 
+${branch} ${prefix}tempo-news 
+${branch} ${prefix}antara-news 
+${branch} ${prefix}cnn-news 
+${branch} ${prefix}fajar-news 
+${bracketmenu} _Storage_ ${F} ${readmore}
+${branch} ${prefix}setcmd 
+${branch} ${prefix}listcmd 
+${branch} ${prefix}delcmd 
+${branch} ${prefix}lockcmd 
+${branch} ${prefix}addmsg 
+${branch} ${prefix}listmsg 
+${branch} ${prefix}getmsg 
+${branch} ${prefix}delmsg 
+${branch} ${prefix}addlist 
+${branch} ${prefix}dellist 
+${branch} ${prefix}updatelist 
+${branch} ${prefix}list 
+${bracketmenu} _Other_ ${F} 
+${branch} ${prefix}owner 
+${branch} ${prefix}listpc 
+${branch} ${prefix}listgc 
+${branch} ${prefix}mcserver 
+${branch} ${prefix}sc 
+${branch} ${prefix}ping 
+${branch} ${prefix}afk 
+${branch} ${prefix}cekupdate [UpdateBot]
+${branch} ${prefix}getscmd [GetSticker]
+${branch} ${prefix}delete 
+${branch} ${prefix}infochat 
+${branch} ${prefix}request 
+${branch} ${prefix}report 
+${branch} ${prefix}donate 
+${branch} ${prefix}listonline 
+${bracketmenu} _Owner_ ${F} ${readmore}
+${branch} ${prefix}self 
+${branch} ${prefix}sewa <add/del>
+${branch} ${prefix}listsewa 
+${branch} ${prefix}bcall 
+${branch} ${prefix}bcgroup 
+${branch} ${prefix}chat 
+${branch} ${prefix}antitag 
+${branch} ${prefix}ban <add/del>
+${branch} ${prefix}cowner <add/del>
+${branch}> / => / $
+${borderlistend}
+
+${headtqto}
+${A} Dika Ardnt
+${B} ZackMans
+${A} Rifza
+${B} Deff
+${left} ${ucapanWaktu}
+${left} ${jangwak}
+${end}`
+                let btn = [{
 callButton: {
 displayText: 'Number Phone Owner',
 phoneNumber: `62 895-0996-0601`
@@ -2040,15 +2371,10 @@ quickReplyButton: {
 displayText: '📊Dashboard',
 id: '#dashboard'
 }
-}]
-}
-}
-}), { userJid: m.chat, quoted: m })
-sock.relayMessage(m.chat, template.message, { messageId: template.key.id })
-}
-
-addCmd(command.slice(1), 1, commund)
-break
+                            }]
+                        sock.send5ButLoc(m.chat, anu, deffri, global.thumbnail, btn)
+                     }
+            break
 
 case prefix+'textmaker': {
 if (isBan) return ads(mess.ban)
@@ -3381,6 +3707,208 @@ ads("Error")
 }
 addCmd(command.slice(1), 1, commund)
 break
+case prefix+'groupmenu': {
+deffri = `Deffri Gans`
+                anu = `┌──⭓ *Group Menu*
+│
+│⭔ ${prefix}linkgroup 
+│⭔ ${prefix}setppgc 
+│⭔ ${prefix}setname 
+│⭔ ${prefix}setdesc 
+│⭔ ${prefix}ephemeral 
+│⭔ ${prefix}hidetag 
+│⭔ ${prefix}tagall 
+│⭔ ${prefix}promote 
+│⭔ ${prefix}demote 
+│⭔ ${prefix}vote 
+│⭔ ${prefix}devote 
+│⭔ ${prefix}upvote 
+│⭔ ${prefix}cekvote 
+│⭔ ${prefix}hapusvote 
+│⭔ ${prefix}antilink <on/off>
+│⭔ ${prefix}welcome <on/off>
+│⭔ ${prefix}autorevoke <on/off>
+│⭔ ${prefix}add 
+│⭔ ${prefix}kick 
+│⭔ ${prefix}revoke 
+│⭔ ${prefix}group <open/close>
+│⭔ ${prefix}editinfo <open/close>
+│⭔ ${prefix}ceksewa 
+│
+└───────⭓`
+                let btn = [{
+                                callButton: {
+displayText: 'SUBSCRIBE',
+url: 'https://youtube.com/channel/UCmEQy5B3GhmfNVSrHEzv-uA'
+}
+}, {
+urlButton: {
+displayText: 'INSTAGRAM',
+url: 'https://instagram.com/deff.xyz'
+}
+}, {
+quickReplyButton: {
+displayText: 'Script📝',
+id: '#sc'
+}
+}, {
+quickReplyButton: {
+displayText: 'Owner🤴',
+id: '#owner'
+}  
+                            }]
+                        sock.send5ButLoc(m.chat, anu, deffri, global.thumb, btn)
+                     }
+            break
+case prefix+'makermenu': {
+deffri = `Deffri Gans`
+                anu = `┌──⭓ *Maker Menu*
+│
+│⭔ ${prefix}3dbox   
+│⭔ ${prefix}drapwater   
+│⭔ ${prefix}lion2   
+│⭔ ${prefix}papercut   
+│⭔ ${prefix}transformer   
+│⭔ ${prefix}herryp   
+│⭔ ${prefix}neondevil   
+│⭔ ${prefix}3dstone   
+│⭔ ${prefix}3davengers   
+│⭔ ${prefix}thunder   
+│⭔ ${prefix}window   
+│⭔ ${prefix}graffiti   
+│⭔ ${prefix}pornhub   
+│⭔ ${prefix}glitch   
+│⭔ ${prefix}blackping   
+│⭔ ${prefix}glitch3   
+│⭔ ${prefix}glitch2   
+│⭔ ${prefix}3dspace   
+│⭔ ${prefix}lion   
+│⭔ ${prefix}3dneon   
+│⭔ ${prefix}neon   
+│⭔ ${prefix}greenneon   
+│⭔ ${prefix}bokeh   
+│⭔ ${prefix}hollographic   
+│⭔ ${prefix}bear   
+│⭔ ${prefix}wolf   
+│⭔ ${prefix}joker   
+│⭔ ${prefix}dropwater   
+│⭔ ${prefix}neonlight   
+│⭔ ${prefix}thewall   
+│⭔ ${prefix}natural   
+│⭔ ${prefix}carbon   
+│⭔ ${prefix}pencil   
+│⭔ ${prefix}blackpink  
+│⭔ ${prefix}neon  
+│⭔ ${prefix}greenneon  
+│⭔ ${prefix}advanceglow  
+│⭔ ${prefix}futureneon  
+│⭔ ${prefix}sandwriting  
+│⭔ ${prefix}sandsummer  
+│⭔ ${prefix}sandengraved  
+│⭔ ${prefix}metaldark  
+│⭔ ${prefix}neonlight  
+│⭔ ${prefix}holographic  
+│⭔ ${prefix}text1917  
+│⭔ ${prefix}minion  
+│⭔ ${prefix}deluxesilver  
+│⭔ ${prefix}newyearcard  
+│⭔ ${prefix}bloodfrosted  
+│⭔ ${prefix}halloween  
+│⭔ ${prefix}jokerlogo  
+│⭔ ${prefix}fireworksparkle  
+│⭔ ${prefix}natureleaves  
+│⭔ ${prefix}bokeh  
+│⭔ ${prefix}toxic  
+│⭔ ${prefix}strawberry  
+│⭔ ${prefix}box3d  
+│⭔ ${prefix}roadwarning  
+│⭔ ${prefix}icecold  
+│⭔ ${prefix}luxury  
+│⭔ ${prefix}cloud  
+│⭔ ${prefix}summersand  
+│⭔ ${prefix}horrorblood  
+│⭔ ${prefix}thunder  
+│⭔ ${prefix}pornhub  
+│⭔ ${prefix}glitch  
+│⭔ ${prefix}avenger  
+│⭔ ${prefix}space  
+│⭔ ${prefix}ninjalogo  
+│⭔ ${prefix}marvelstudio  
+│⭔ ${prefix}lionlogo  
+│⭔ ${prefix}wolflogo  
+│⭔ ${prefix}steel3d  
+│⭔ ${prefix}wallgravity  
+│
+└───────⭓`
+                let btn = [{
+                                callButton: {
+displayText: 'SUBSCRIBE',
+url: 'https://youtube.com/channel/UCmEQy5B3GhmfNVSrHEzv-uA'
+}
+}, {
+urlButton: {
+displayText: 'INSTAGRAM',
+url: 'https://instagram.com/deff.xyz'
+}
+}, {
+quickReplyButton: {
+displayText: 'Script📝',
+id: '#sc'
+}
+}, {
+quickReplyButton: {
+displayText: 'Owner🤴',
+id: '#owner'
+}  
+                            }]
+                        sock.send5ButLoc(m.chat, anu, deffri, global.thumb, btn)
+                     }
+            break
+case prefix+'othermenu': {
+deffri = `Deffri Gans`
+                anu = `┌──⭓ *Other Menu*
+│
+│⭔ ${prefix}owner 
+│⭔ ${prefix}listpc 
+│⭔ ${prefix}listgc 
+│⭔ ${prefix}mcserver 
+│⭔ ${prefix}sc 
+│⭔ ${prefix}ping 
+│⭔ ${prefix}afk 
+│⭔ ${prefix}cekupdate [UpdateBot]
+│⭔ ${prefix}getscmd [GetSticker]
+│⭔ ${prefix}delete 
+│⭔ ${prefix}infochat 
+│⭔ ${prefix}request 
+│⭔ ${prefix}report 
+│⭔ ${prefix}donate 
+│⭔ ${prefix}listonline 
+│
+└───────⭓`
+                let btn = [{
+                                callButton: {
+displayText: 'SUBSCRIBE',
+url: 'https://youtube.com/channel/UCmEQy5B3GhmfNVSrHEzv-uA'
+}
+}, {
+urlButton: {
+displayText: 'INSTAGRAM',
+url: 'https://instagram.com/deff.xyz'
+}
+}, {
+quickReplyButton: {
+displayText: 'Script📝',
+id: '#sc'
+}
+}, {
+quickReplyButton: {
+displayText: 'Owner🤴',
+id: '#owner'
+}  
+                            }]
+                        sock.send5ButLoc(m.chat, anu, deffri, global.thumb, btn)
+                     }
+            break
 case prefix+'bass': case prefix+'blown': case prefix+'deep': case prefix+'earrape': case prefix+'fast': case prefix+'fat': case prefix+'nightcore': case prefix+'reverse': case prefix+'robot': case prefix+'slow': case prefix+'smooth': case prefix+'tupai':
                 try {
                 let set
@@ -3404,7 +3932,7 @@ case prefix+'bass': case prefix+'blown': case prefix+'deep': case prefix+'earrap
                 fs.unlinkSync(media)
                 if (err) return ads(err)
                 let buff = fs.readFileSync(ran)
-                sock.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
+                sock.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : fvn })
                 fs.unlinkSync(ran)
                 })
                 } else ads(`Balas audio yang ingin diubah dengan caption *${prefix + command}*`)
@@ -3426,9 +3954,9 @@ const jangkale = menlise.replace(/(\S+\s*){1,10}/g, '$&\n')
 const jangbare = jangkale.split('\n').slice(0, 30).join('\n')
 const jangnam = nams.replace(/(\S+\s*){1,10}/g, '$&\n')
 const jangkel = kels.replace(/(\S+\s*){1,10}/g, '$&\n')
-if (kels.length > 12) return ads("Jumlah teks kelas maximal 4")
-if (nams.length > 34) return ads("Jumlah teks nama maximal 27")
-if (codewarn.length > 7) return ads("Jumlah teks warna maximal 7")
+if (kels.length > 12) return m.reply("Jumlah teks kelas maximal 4")
+if (nams.length > 34) return m.reply("Jumlah teks nama maximal 27")
+if (codewarn.length > 7) return m.reply("Jumlah teks warna maximal 7")
 console.log('「 MENULIS 」Sedang dalam prosses')
 spawn('convert', [
 './media/image/magernulis.jpg',
@@ -3483,13 +4011,12 @@ jangkel,
 jangbare,
 './storage/hasilnulis.jpg'
 ])
-.on('error', () => ads('Error') )
+.on('error', () => m.reply('Error') )
 .on('exit', () => {
-sock.sendMessage(from, {image:fs.readFileSync('./worker/storage/hasilnulis.jpg'), caption:'Succes'}, {quoted:m}).catch(() => ads('```「 GAGAL 」Terjadi kesalahan dalam mengirim file```'))
+mans.sendMessage(from, {image:fs.readFileSync('./storage/hasilnulis.jpg'), caption:'Succes'}, {quoted:m}).catch(() => m.reply('```「 GAGAL 」Terjadi kesalahan dalam mengirim file```'))
 })
 exec(`npm i marker`)
 }
-addCmd(command.slice(1), 1, commund)
 break
 case prefix+'kalkulator': case prefix+'kal': {
 if (isBan) return ads(mess.ban)
@@ -3666,6 +4193,21 @@ await wokwol.quoted.copyNForward(m.chat, true)
 }
 addCmd(command.slice(1), 1, commund)
 break
+case prefix+'command': {
+let sections = [
+                {
+                title: "CHANGE EPHEMERAL GROUP",
+                rows: [
+                {title: "ALL MENU", rowId: `.allmenu`, description: `Menampilkan Semua Menu`},
+                {title: "Group Menu", rowId: `.groupmenu`, description: `Menampilkan Menu Group`},
+                {title: "Maker Menu", rowId: `.makermenu`, description: `menampilkan Menu Maker`},
+                {title: "Other Menu", rowId: `.othermenu`, description: `Menampilkan Menu Lainnya`}
+                ]
+                },
+                ]
+                sock.sendListMsg(m.chat, `Please select the following Ephemeral Options List !`, sock.user.name, `Hallo ${m.pushName}👋`, `Click Here`, sections, m)
+            }
+            break
 case prefix+'getname': {
 if (isBan) return ads(mess.ban)
 if (qtod === "true") {
