@@ -80,10 +80,10 @@ sock.ev.on('group-participants.update', async (anu) => {
                     ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 		if (anu.action == "add") {
-		   var but = [{buttonId: `/`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
+		   var but = [{buttonId: `lala`, buttonText: { displayText: "Welcome 🥳" }, type: 1 }]
 				sock.sendMessage(anu.id, { caption: `Hallo @${num.split("@")[0]} Selamat Datang Di Grup *${metadata.subject}*\nJangan Lupa Intro Yah kak, Biar Saling Kenal 😁`, image: {url: ppuser}, buttons: but, footer: `©Created By Deffri Gans`, mentions: [num]})
 		} else if (anu.action == "remove") {
-		  var but = [{buttonId: `/`, buttonText: { displayText: "Selamat Tinggal Beban 👋" }, type: 1 }]
+		  var but = [{buttonId: `bukanpref`, buttonText: { displayText: "Selamat Tinggal Beban 👋" }, type: 1 }]
 				sock.sendMessage(anu.id, { caption: `@${num.split("@")[0]} Leaving From ${metadata.subject} \n\n Byeee @${num.split("@")[0]} 👋 Semoga Tenang Di Alam Sana:v`, image: {url: ppuser}, buttons: but, footer: `©Created By Deffri Gans`, mentions: [num]})
                
                 }
